@@ -11,7 +11,11 @@ public final class PointOperator {
      * @param translateVector Translation to apply
      */
     public static void translate(Double[] vector, Double[] translateVector) {
+        //est ce qu'on assume qu'ils ont la même taille?
 
+        for (int i = 0; i < vector.length; i++) {
+            vector[i] += translateVector[i];
+        }
     }
 
     /** TODO
@@ -22,6 +26,13 @@ public final class PointOperator {
      */
     public static void rotate(Double[] vector, Double[][] rotationMatrix) {
 
+        for (int i = 0; i < vector.length; i++) {
+            double sum = 0;
+            for (int j = 0; j < vector.length; j++) {
+                sum += rotationMatrix[i][j] * vector[j];
+            }
+            vector[i] = sum;
+        }
     }
 
     /** TODO
@@ -31,6 +42,9 @@ public final class PointOperator {
      */
     public static void divide(Double[] vector, Double divider) {
 
+        for (int i = 0; i < vector.length; i++) {
+            vector[i] /= divider;
+        }
     }
 
     /** TODO
@@ -40,6 +54,9 @@ public final class PointOperator {
      */
     public static void multiply(Double[] vector, Double multiplier) {
 
+        for (int i = 0; i < vector.length; i++) {
+            vector[i] *= multiplier;
+        }
     }
 
     /** TODO
@@ -49,5 +66,8 @@ public final class PointOperator {
      */
     public static void add(Double[] vector, Double adder) {
 
+        for (int i = 0; i < vector.length; i++) {
+            vector[i] += adder;
+        }
     }
 }
