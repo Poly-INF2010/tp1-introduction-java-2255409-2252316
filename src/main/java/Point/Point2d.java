@@ -142,7 +142,6 @@ public class Point2d extends AbstractPoint {
 
         Point2d newPoint2d = new Point2d(this.vector);
 
-
         return newPoint2d;
     }
 }
