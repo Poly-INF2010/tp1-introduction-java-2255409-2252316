@@ -11,7 +11,6 @@ public final class PointOperator {
      * @param translateVector Translation to apply
      */
     public static void translate(Double[] vector, Double[] translateVector) {
-        //est ce qu'on assume qu'ils ont la même taille?
 
         for (int i = 0; i < vector.length; i++) {
             vector[i] += translateVector[i];
