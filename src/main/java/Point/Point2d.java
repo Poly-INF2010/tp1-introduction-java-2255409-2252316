@@ -35,8 +35,7 @@ public class Point2d extends AbstractPoint {
     @Override
     public Point2d translate(Double[] translateVector) {
 
-        vector[0] += translateVector[0];
-        vector[1] += translateVector[1];
+        PointOperator.translate(vector, translateVector);
 
         return this;
     }
@@ -48,7 +47,7 @@ public class Point2d extends AbstractPoint {
      */
     public Point2d translate(Point2d translateVector) {
 
-        this.translate(translateVector.vector);
+        translate(translateVector.vector);
 
         return this;
     }
@@ -61,17 +60,7 @@ public class Point2d extends AbstractPoint {
     @Override
     public Point2d rotate(Double[][] rotationMatrix) {
 
-        Double[] newVector = {0.0, 0.0};
-
-        for (int i = 0; i < vector.length; i++) {
-            double sum = 0;
-            for (int j = 0; j < vector.length; j++) {
-                sum += (rotationMatrix[i][j] * vector[j]);
-            }
-            newVector[i] += sum;
-        }
-
-        vector = newVector;
+        PointOperator.rotate(vector, rotationMatrix);
 
         return this;
     }
@@ -100,8 +89,7 @@ public class Point2d extends AbstractPoint {
     @Override
     public Point2d divide(Double divider) {
 
-        vector[0] /= divider;
-        vector[1] /= divider;
+        PointOperator.divide(vector, divider);
 
         return this;
     }
@@ -114,8 +102,7 @@ public class Point2d extends AbstractPoint {
     @Override
     public Point2d multiply(Double multiplier) {
 
-        vector[0] *= multiplier;
-        vector[1] *= multiplier;
+        PointOperator.multiply(vector, multiplier);
 
         return this;
     }
@@ -128,8 +115,7 @@ public class Point2d extends AbstractPoint {
     @Override
     public Point2d add(Double adder) {
 
-        vector[0] += adder;
-        vector[1] += adder;
+        PointOperator.add(vector, adder);
 
         return this;
     }

@@ -17,6 +17,19 @@ public final class LetterFactory {
      * @return BaseShape containing the letter A
      */
     public static BaseShape create_A()  {
+
+        Rectangle sideLegLeft = new Rectangle(stripeThickness, maxWidth);
+        Rectangle sideLegRight = sideLegLeft.clone();
+
+        Rectangle middleBar = new Rectangle(halfStripeThickness, halfMaxHeight);
+
+        BaseShape letterA = new BaseShape();
+
+        double rotationLegs = Math.PI / 4;
+
+        letterA.add(middleBar);
+
+
         return null;
     }
 
