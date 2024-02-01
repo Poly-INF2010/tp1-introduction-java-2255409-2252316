@@ -7,6 +7,8 @@ import java.awt.geom.Point2D;
 import java.util.*;
 import java.util.Iterator;
 import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class BaseShape extends Transform implements Cloneable {
     private final Collection<Point2d> coords;
@@ -19,7 +21,7 @@ public class BaseShape extends Transform implements Cloneable {
     /** TODO
      * Create a BaseShape with empty coordinades
      */
-    public BaseShape() {this.coords = null; }
+    public BaseShape() {this.coords = new ArrayList<>(); }
 
     /** TODO
      * Create a BaseShape from a collection of 2D points
@@ -35,7 +37,7 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Updated BaseShape
      */
     public BaseShape add(Point2d coord) {
-        this.coords.add(coord.clone());
+        coords.add(coord.clone());
         return this;
     }
 
@@ -127,7 +129,10 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Shallow copy of all coordinates contained by this BaseShape
      */
     public Collection<Point2d> getCoords() {
-        return new ArrayList<Point2d>() {};
+        if (coords == null) {
+            return Collections.emptyList();
+        }
+        return new ArrayList<>(coords);
     }
 
     /** TODO
@@ -142,7 +147,7 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Maximum X coordinate of the shape
      */
     public Double getMaxX() {
-        Iterator<Point2d> iterator = this.coords.iterator();
+        Iterator<Point2d> iterator = coords.iterator();
         Point2d maxXPoint = iterator.next();
         while(iterator.hasNext()) {
             Point2d currentPoint = iterator.next();
@@ -157,7 +162,7 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Maximum Y coordinate of the shape
      */
     public Double getMaxY() {
-        Iterator<Point2d> iterator = this.coords.iterator();
+        Iterator<Point2d> iterator = coords.iterator();
         Point2d maxYPoint = iterator.next();
         while(iterator.hasNext()) {
             Point2d currentPoint = iterator.next();
@@ -172,7 +177,7 @@ public class BaseShape extends Transform implements Cloneable {
      * @return 2D Point containing the maximum X and Y coordinates of the shape
      */
     public Point2d getMaxCoord() {
-        Iterator<Point2d> iterator = this.coords.iterator();
+        Iterator<Point2d> iterator = coords.iterator();
         Point2d maxPoint = iterator.next();
         double distance = 0;
         while(iterator.hasNext()) {
@@ -188,7 +193,7 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Minimum X coordinate of the shape
      */
     public Double getMinX() {
-        Iterator<Point2d> iterator = this.coords.iterator();
+        Iterator<Point2d> iterator = coords.iterator();
         Point2d minXPoint = iterator.next();
         while(iterator.hasNext()) {
             Point2d currentPoint = iterator.next();
@@ -203,7 +208,7 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Minimum Y coordinate of the shape
      */
     public Double getMinY() {
-        Iterator<Point2d> iterator = this.coords.iterator();
+        Iterator<Point2d> iterator = coords.iterator();
         Point2d minYPoint = iterator.next();
         while(iterator.hasNext()) {
             Point2d currentPoint = iterator.next();
@@ -218,7 +223,7 @@ public class BaseShape extends Transform implements Cloneable {
      * @return 2D point containing the minimum X and Y coordinate of the shape
      */
     public Point2d getMinCoord() {
-        Iterator<Point2d> iterator = this.coords.iterator();
+        Iterator<Point2d> iterator = coords.iterator();
         Point2d minPoint = iterator.next();
         double distance = Math.sqrt((minPoint.X() * minPoint.X()) + (minPoint.Y() * minPoint.Y())) ;
         while(iterator.hasNext()) {
@@ -237,7 +242,9 @@ public class BaseShape extends Transform implements Cloneable {
      */
     public BaseShape clone() {
         BaseShape newShape = new BaseShape();
-        newShape.cloneCoords(this.coords);
+        for(Point2d point: coords){
+            newShape.add(point.clone());
+        }
         return newShape;
     }
 }
