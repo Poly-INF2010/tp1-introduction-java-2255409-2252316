@@ -2,6 +2,9 @@ package Letter;
 
 import Point.Point2d;
 import Shape.*;
+import org.w3c.dom.css.Rect;
+
+import java.text.CharacterIterator;
 
 public final class LetterFactory {
     final static Double maxHeight = 150.0;
@@ -38,6 +41,10 @@ public final class LetterFactory {
      * @return BaseShape containing the letter B
      */
     public static BaseShape create_B() {
+        Rectangle leftBand = new Rectangle(stripeThickness,maxHeight);
+        Circle topO = new Circle(halfMaxWidth);
+        Circle bottom0 = new Circle(halfMaxWidth);
+
         return null;
     }
 
@@ -46,6 +53,11 @@ public final class LetterFactory {
      * @return BaseShape containing the letter C
      */
     public static BaseShape create_C() {
+        Circle outterCircle = new Circle(halfMaxHeight);
+        Circle innerCircle = new Circle(halfMaxHeight/2);
+        Rectangle rightRectangle = new Rectangle((halfMaxHeight-(halfMaxHeight/2)),(halfMaxHeight*0.6));
+
+
         return null;
     }
 
@@ -54,6 +66,10 @@ public final class LetterFactory {
      * @return BaseShape containing the letter E
      */
     public static BaseShape create_E() {
+        Rectangle leftRectangle = new Rectangle(stripeThickness,maxHeight);
+        Rectangle topRectangle = new Rectangle(halfStripeThickness,maxWidth);
+        Rectangle middleRectangle = new Rectangle(halfStripeThickness,maxWidth);
+        Rectangle bottomRectangle = new Rectangle(halfStripeThickness,maxWidth);
         return null;
     }
 
@@ -62,6 +78,9 @@ public final class LetterFactory {
      * @return BaseShape containing the letter H
      */
     public static BaseShape create_H() {
+        Rectangle leftRectangle = new Rectangle(halfStripeThickness,maxHeight);
+        Rectangle rightRectangle = new Rectangle(halfStripeThickness,maxHeight);
+        Rectangle middleBar = new Rectangle(maxWidth,stripeThickness);
         return null;
     }
 
@@ -70,6 +89,10 @@ public final class LetterFactory {
      * @return BaseShape containing the letter N
      */
     public static BaseShape create_N() {
+        Rectangle leftRectangle = new Rectangle(halfStripeThickness,maxHeight);
+        Rectangle rightRectangle = new Rectangle(halfStripeThickness,maxHeight);
+        Rectangle middleBar = new Rectangle(maxWidth,maxHeight);
+
         return null;
     }
 
@@ -78,6 +101,8 @@ public final class LetterFactory {
      * @return BaseShape containing the letter O
      */
     public static BaseShape create_O() {
+        Circle outterCircle = new Circle(halfMaxHeight);
+        Circle innerCircle = new Circle(halfMaxHeight/2);
         return null;
     }
 
