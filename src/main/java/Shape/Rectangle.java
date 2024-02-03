@@ -36,8 +36,7 @@ public class Rectangle extends BaseShape {
      * @param coords The collection of 2D points
      */
     private Rectangle(Collection<Point2d> coords) {
-        //Find the largest x and the largest y
-
+        super(coords);
     }
 
     /** TODO
@@ -45,6 +44,6 @@ public class Rectangle extends BaseShape {
      */
     @Override
     public Rectangle clone() {
-        return (Rectangle) super.clone();
+        return new Rectangle(cloneCoords());
     }
 }
