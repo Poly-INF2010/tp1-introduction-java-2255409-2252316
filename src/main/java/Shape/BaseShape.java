@@ -13,7 +13,7 @@ import java.util.Collection;
 public class BaseShape extends Transform implements Cloneable {
     private final Collection<Point2d> coords;
 
-//helper function to clone a list of points 
+//helper function to clone a list of points
   public Collection<Point2d> cloneCoords(Collection<Point2d> coords) {
         return coords.stream().map(Point2d::clone).collect(Collectors.toList());
     }
@@ -84,10 +84,10 @@ public class BaseShape extends Transform implements Cloneable {
         Iterator<Point2d> iterator = this.coords.iterator();
         while(iterator.hasNext()){
             Point2d currentPoint = iterator.next();
-
             for(Point2d point : shape.getCoords()){
                 if(currentPoint.equals(point)){
                     iterator.remove();
+                    break;
                 }
             }
         }
@@ -107,6 +107,7 @@ public class BaseShape extends Transform implements Cloneable {
             for (Point2d point : coords) {
                 if (currentPoint.equals(point)) {
                     iterator.remove();
+                    break;
                 }
             }
         }
@@ -129,11 +130,12 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Shallow copy of all coordinates contained by this BaseShape
      */
     public Collection<Point2d> getCoords() {
+
         if (coords == null) {
             return Collections.emptyList();
         }
-        return new ArrayList<>(coords);
-    }
+
+        return new ArrayList<>(coords);}
 
     /** TODO
      * Create and return a deep copy of the coordinates of the shape

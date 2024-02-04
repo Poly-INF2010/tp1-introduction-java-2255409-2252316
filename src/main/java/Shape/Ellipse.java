@@ -17,7 +17,7 @@ public class Ellipse extends BaseShape {
             for(double y = -heightDiameter; y < heightDiameter; y += increment){
                 double equation = ((Math.pow(x,2.0)/Math.pow(widthDiameter,2.0))+(Math.pow(y,2.0)/Math.pow(heightDiameter,2.0)));
                 if(equation <= 1){
-                    getCoords().add(new Point2d(x,y));
+                    add(new Point2d(x,y));
                 }
             }
         }
@@ -28,7 +28,7 @@ public class Ellipse extends BaseShape {
      * @param dimensions 2D point containing the width and height of the Ellipse
      */
     public Ellipse(Point2d dimensions) {
-        new Ellipse(dimensions.X(),dimensions.Y());
+        this(dimensions.X(),dimensions.Y());
     }
 
     /**

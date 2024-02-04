@@ -45,8 +45,10 @@ public class LetterTest {
             System.out.println("Unable to display the graphical message : " + e.getMessage());
         }
 
+
         assertTrue(foundEnoughChars, "Nous ne pouvons pas reconnaitre assez de caracteres");
     }
+
 
     private static Integer findMatchingChars(String str1, String str2) {
         Set<String> chars1 = new HashSet<String>(Arrays.asList(str1.split("(?!^)")));

@@ -12,13 +12,16 @@ public class Rectangle extends BaseShape {
      * @param height Height of the rectangle
      */
     public Rectangle(Double width, Double height) {
+
+        super();
+
         double halfWidth = width/2;
         double halfHeight = height/2;
         double increment = 0.5;
 
-        for(double x = -halfWidth; x< halfWidth; x += increment){
-            for(double y = -halfHeight; y < halfHeight; y += increment){
-                getCoords().add(new Point2d(x,y));
+        for (double x = - halfWidth; x < halfWidth; x += increment) {
+            for (double y = - halfHeight; y < halfHeight; y += increment) {
+                add(new Point2d(x,y));
             }
         }
     }
@@ -28,7 +31,7 @@ public class Rectangle extends BaseShape {
      * @param dimensions 2D point containing the width and height of the rectangle
      */
     public Rectangle(Point2d dimensions) {
-        new Rectangle(dimensions.X(),dimensions.Y());
+        this(dimensions.X(),dimensions.Y());
     }
 
     /**
