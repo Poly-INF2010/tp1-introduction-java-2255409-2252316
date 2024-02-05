@@ -13,8 +13,8 @@ import java.util.Collection;
 public class BaseShape extends Transform implements Cloneable {
     private final Collection<Point2d> coords;
 
-//helper function to clone a list of points
-  public Collection<Point2d> cloneCoords(Collection<Point2d> coords) {
+    //helper function to clone a list of points
+    public Collection<Point2d> cloneCoords(Collection<Point2d> coords) {
         return coords.stream().map(Point2d::clone).collect(Collectors.toList());
     }
 
@@ -149,17 +149,12 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Maximum X coordinate of the shape
      */
     public Double getMaxX() {
-        Iterator<Point2d> iterator = coords.iterator();
-        if(!iterator.hasNext()){
-            return -Double.MAX_VALUE;
-        }
-        Point2d maxXPoint = iterator.next();
-        while(iterator.hasNext()) {
-            Point2d currentPoint = iterator.next();
-            if(currentPoint.X() > maxXPoint.X()){
-                maxXPoint = currentPoint;
+        Point2d maxXPoint = new Point2d(-Double.MAX_VALUE,-Double.MAX_VALUE);
+        for(Point2d point : coords){
+            if(point.X() > maxXPoint.X()){
+                maxXPoint = point;
             }
-        }
+        };
         return maxXPoint.X();
     }
 
@@ -167,17 +162,12 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Maximum Y coordinate of the shape
      */
     public Double getMaxY() {
-        Iterator<Point2d> iterator = coords.iterator();
-        if(!iterator.hasNext()){
-            return -Double.MAX_VALUE;
-        }
-        Point2d maxYPoint = iterator.next();
-        while(iterator.hasNext()) {
-            Point2d currentPoint = iterator.next();
-            if(currentPoint.Y() > maxYPoint.Y()){
-                maxYPoint = currentPoint;
+        Point2d maxYPoint = new Point2d(-Double.MAX_VALUE,-Double.MAX_VALUE);
+        for(Point2d point : coords){
+            if(point.Y() > maxYPoint.Y()){
+                maxYPoint = point;
             }
-        }
+        };
         return maxYPoint.Y();
     }
 
@@ -192,17 +182,12 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Minimum X coordinate of the shape
      */
     public Double getMinX() {
-        Iterator<Point2d> iterator = coords.iterator();
-        if(!iterator.hasNext()){
-            return Double.MAX_VALUE;
-        }
-        Point2d minXPoint = iterator.next();
-        while(iterator.hasNext()) {
-            Point2d currentPoint = iterator.next();
-            if(currentPoint.X() < minXPoint.X()){
-                minXPoint = currentPoint;
+        Point2d minXPoint = new Point2d(Double.MAX_VALUE,Double.MAX_VALUE);
+        for(Point2d point : coords){
+            if(point.X() < minXPoint.X()){
+                minXPoint = point;
             }
-        }
+        };
         return minXPoint.X();
     }
 
@@ -210,17 +195,12 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Minimum Y coordinate of the shape
      */
     public Double getMinY() {
-        Iterator<Point2d> iterator = coords.iterator();
-        if(!iterator.hasNext()){
-            return Double.MAX_VALUE;
-        }
-        Point2d minYPoint = iterator.next();
-        while(iterator.hasNext()) {
-            Point2d currentPoint = iterator.next();
-            if(currentPoint.Y() < minYPoint.Y()){
-                minYPoint = currentPoint;
+        Point2d minYPoint = new Point2d(Double.MAX_VALUE,Double.MAX_VALUE);
+        for(Point2d point : coords){
+            if(point.Y() < minYPoint.Y()){
+                minYPoint = point;
             }
-        }
+        };
         return minYPoint.Y();
     }
 
