@@ -2,8 +2,6 @@ package Shape;
 
 import Interface.Transform;
 import Point.Point2d;
-
-import java.awt.geom.Point2D;
 import java.util.*;
 import java.util.Iterator;
 import java.util.stream.Collectors;
@@ -19,7 +17,7 @@ public class BaseShape extends Transform implements Cloneable {
     }
 
     /** TODO
-     * Create a BaseShape with empty coordinades
+     * Create a BaseShape with empty coordinates
      */
     public BaseShape() {this.coords = new ArrayList<>(); }
 
@@ -130,7 +128,6 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Shallow copy of all coordinates contained by this BaseShape
      */
     public Collection<Point2d> getCoords() {
-
         if (coords == null) {
             return Collections.emptyList();
         }
@@ -154,7 +151,7 @@ public class BaseShape extends Transform implements Cloneable {
             if(point.X() > maxXPoint.X()){
                 maxXPoint = point;
             }
-        };
+        }
         return maxXPoint.X();
     }
 
@@ -167,7 +164,7 @@ public class BaseShape extends Transform implements Cloneable {
             if(point.Y() > maxYPoint.Y()){
                 maxYPoint = point;
             }
-        };
+        }
         return maxYPoint.Y();
     }
 
@@ -187,7 +184,7 @@ public class BaseShape extends Transform implements Cloneable {
             if(point.X() < minXPoint.X()){
                 minXPoint = point;
             }
-        };
+        }
         return minXPoint.X();
     }
 
@@ -200,7 +197,7 @@ public class BaseShape extends Transform implements Cloneable {
             if(point.Y() < minYPoint.Y()){
                 minYPoint = point;
             }
-        };
+        }
         return minYPoint.Y();
     }
 

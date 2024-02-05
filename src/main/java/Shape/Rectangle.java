@@ -1,8 +1,6 @@
 package Shape;
 
 import Point.Point2d;
-
-import java.util.ArrayList;
 import java.util.Collection;
 
 public class Rectangle extends BaseShape {

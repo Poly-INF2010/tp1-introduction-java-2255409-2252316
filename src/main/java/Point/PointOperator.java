@@ -1,7 +1,5 @@
 package Point;
 
-import java.util.*;
-
 public final class PointOperator {
 
     /** TODO

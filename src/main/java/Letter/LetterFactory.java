@@ -2,9 +2,6 @@ package Letter;
 
 import Point.Point2d;
 import Shape.*;
-import org.w3c.dom.css.Rect;
-
-import java.text.CharacterIterator;
 
 public final class LetterFactory {
     final static Double maxHeight = 150.0;
