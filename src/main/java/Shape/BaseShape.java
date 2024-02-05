@@ -79,15 +79,8 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Updated BaseShape
      */
     public BaseShape remove(BaseShape shape) {
-        Iterator<Point2d> iterator = this.coords.iterator();
-        while(iterator.hasNext()){
-            Point2d currentPoint = iterator.next();
-            for(Point2d point : shape.getCoords()){
-                if(currentPoint.equals(point)){
-                    iterator.remove();
-                    break;
-                }
-            }
+        for(Point2d point : shape.getCoords()){
+            this.coords.removeIf(n -> n.equals(point));
         }
         return this;
     }
@@ -98,16 +91,8 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Updated BaseShape
      */
     public BaseShape removeAll(Collection<Point2d> coords) {
-        Iterator<Point2d> iterator = this.coords.iterator();
-        while(iterator.hasNext()) {
-            Point2d currentPoint = iterator.next();
-
-            for (Point2d point : coords) {
-                if (currentPoint.equals(point)) {
-                    iterator.remove();
-                    break;
-                }
-            }
+        for(Point2d point : coords){
+            this.coords.removeIf(n -> n.equals(point));
         }
         return this;
     }
