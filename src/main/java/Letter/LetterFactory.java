@@ -45,14 +45,14 @@ public final class LetterFactory {
         Rectangle leftBand = new Rectangle(stripeThickness,maxHeight);
         leftBand.translate(leftBand.getCoords(), new Point2d(-halfMaxWidth,0.0));
 
-        Circle emptyCircle = new Circle((halfMaxHeight/2)-halfStripeThickness);
+        Circle innerCircle = new Circle((halfMaxHeight/2)-halfStripeThickness);
 
         Circle topO = new Circle(halfMaxHeight/2);
-        topO.remove(emptyCircle);
+        topO.remove(innerCircle);
         topO.translate(topO.getCoords(), new Point2d(0.0,halfMaxHeight/2));
 
         Circle bottomO = new Circle(halfMaxHeight/2);
-        bottomO.remove(emptyCircle);
+        bottomO.remove(innerCircle);
         bottomO.translate(bottomO.getCoords(), new Point2d(0.0, -halfMaxHeight/2));
 
         BaseShape letterB = new BaseShape();
@@ -86,19 +86,30 @@ public final class LetterFactory {
      * @return BaseShape containing the letter E
      */
     public static BaseShape create_E() {
-        Rectangle leftRectangle = new Rectangle(halfStripeThickness, maxHeight);
-        leftRectangle.translate(leftRectangle.getCoords(), new Point2d(-halfMaxWidth, 0.0));
+//        Rectangle leftRectangle = new Rectangle(halfStripeThickness, maxHeight);
+//        leftRectangle.translate(leftRectangle.getCoords(), new Point2d(-halfMaxWidth, 0.0));
+//
+//        Rectangle topRectangle = new Rectangle(maxWidth, halfStripeThickness);
+//        topRectangle.translate(topRectangle.getCoords(), new Point2d(0.0, halfMaxHeight - (halfStripeThickness/2)));
+//
+//        Rectangle middleRectangle = new Rectangle(maxWidth, halfStripeThickness);
+//
+//        Rectangle bottomRectangle = new Rectangle(maxWidth, halfStripeThickness);
+//        bottomRectangle.translate(bottomRectangle.getCoords(), new Point2d(0.0, -halfMaxHeight + (halfStripeThickness/2)));
+//
+//        BaseShape letterE = new BaseShape();
+//        letterE.add(leftRectangle).add(topRectangle).add(middleRectangle).add(bottomRectangle);
 
-        Rectangle topRectangle = new Rectangle(maxWidth, halfStripeThickness);
-        topRectangle.translate(topRectangle.getCoords(), new Point2d(0.0, halfMaxHeight - (halfStripeThickness/2)));
+        Rectangle mainRectangle = new Rectangle(maxWidth, maxHeight);
 
-        Rectangle middleRectangle = new Rectangle(maxWidth, halfStripeThickness);
-
-        Rectangle bottomRectangle = new Rectangle(maxWidth, halfStripeThickness);
-        bottomRectangle.translate(bottomRectangle.getCoords(), new Point2d(0.0, -halfMaxHeight + (halfStripeThickness/2)));
+        Square topSquare = new Square(halfMaxHeight - stripeThickness);
+        topSquare.translate(topSquare.getCoords(), new Point2d(halfStripeThickness, halfMaxHeight/2));
+        Square bottomSquare = new Square(halfMaxHeight - stripeThickness);
+        bottomSquare.translate(bottomSquare.getCoords(), new Point2d(halfStripeThickness, -halfMaxHeight/2));
 
         BaseShape letterE = new BaseShape();
-        letterE.add(leftRectangle).add(topRectangle).add(middleRectangle).add(bottomRectangle);
+        letterE.add(mainRectangle).remove(topSquare);
+        letterE.remove(bottomSquare);
 
         return letterE;
     }
