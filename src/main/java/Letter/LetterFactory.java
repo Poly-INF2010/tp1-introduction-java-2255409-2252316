@@ -107,13 +107,13 @@ public final class LetterFactory {
      */
     public static BaseShape create_H() {
 
-        BaseShape leftLeg = new Rectangle(stripeThickness,maxHeight);
+        Rectangle leftLeg = new Rectangle(stripeThickness,maxHeight);
         leftLeg.translate(leftLeg.getCoords(), new Point2d(-halfMaxWidth , 0.0));
 
-        BaseShape rightLeg = new Rectangle(stripeThickness,maxHeight);
+        Rectangle rightLeg = new Rectangle(stripeThickness,maxHeight);
         rightLeg.translate(rightLeg.getCoords(), new Point2d(halfMaxWidth, 0.0));
 
-        BaseShape middleBar = new Rectangle(maxWidth,stripeThickness);
+        Rectangle middleBar = new Rectangle(maxWidth,stripeThickness);
 
         BaseShape letterH = new BaseShape();
         letterH.add(leftLeg).add(rightLeg).add(middleBar);

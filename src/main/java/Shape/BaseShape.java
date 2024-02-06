@@ -159,6 +159,7 @@ public class BaseShape extends Transform implements Cloneable {
      * @return 2D Point containing the maximum X and Y coordinates of the shape
      */
     public Point2d getMaxCoord() {
+
         return new Point2d(this.getMaxX(),this.getMaxY());
     }
 
@@ -192,6 +193,7 @@ public class BaseShape extends Transform implements Cloneable {
      * @return 2D point containing the minimum X and Y coordinate of the shape
      */
     public Point2d getMinCoord() {
+
         return new Point2d(this.getMinX(),this.getMinY());
     }
 
