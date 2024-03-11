@@ -1,0 +1,8 @@
+Points	4/5
+Formes	4/5
+Lettres	5/5
+Qualité de code et Design	4/5
+Total	17/20
+
+Les methodes statiques de PointOperator doivent être utilisées dans Point2D( translate,rotate)
+Les methodes comme add(baseshape) devront faire appel à addAll ( duplication de code)
